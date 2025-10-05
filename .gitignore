@@ -54,15 +54,23 @@ desktop.ini
 # ==========================
 # Docker
 # ==========================
-# No pugem imatges ni contenidors
+# No pugem imatges, contenidors ni dades persistents
 *.pid
 *.tar
 *.bak
 *.swp
 *.tmp
 *.old
-docker-data/
+
+# Fitxers d'entorn amb credencials locals
 .env
+
+# Carpetes de dades locals o volums de Docker
+docker-data/
+mysql_data/
+volumes/
+data/
+tmp/
 
 # ==========================
 # Java
