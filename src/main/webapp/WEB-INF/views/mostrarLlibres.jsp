@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Aquesta és la pàgina dels llibres!</h1>
-        <h2>${mostrar}</h2>
+        <h1>Aquesta és la pàgina dels llibres que hi ha a la Base de dades!</h1>
+        <h2>${llibres}</h2>
     </body>
 </html>

@@ -14,8 +14,8 @@
     <body>
         <h1>Hola Josep. Pàgina inici totEsBook</h1>
          <h1> ${benvinguda} </h1>
-        <form action="mostrarLlibres" method="get">
-            <button type="submit">Anar a la següent pàgina</button>
+        <form action="${pageContext.request.contextPath}/mostrarLlibres" method="get">
+            <button type="submit">Veure el llistat de llibres</button>
         </form>
     </body>
 </html>
