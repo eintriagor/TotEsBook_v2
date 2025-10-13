@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hola Josep. Pàgina inici totEsBook</h1>
+        <h1>Hola equip de TotEsBook. Aquesta és la pàgina d'inici</h1>
          <h1> ${benvinguda} </h1>
         <form action="${pageContext.request.contextPath}/mostrarLlibres" method="get">
             <button type="submit">Veure el llistat de llibres</button>
