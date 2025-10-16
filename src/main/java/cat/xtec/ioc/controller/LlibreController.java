@@ -19,12 +19,12 @@ public class LlibreController {
     @Autowired
     private LlibreService llibreService;
 
-    // Ara el mapping és relatiu a l'arrel de l'aplicació: /TotEsBook/mostrarLlibres
+    // mapping relatiu a l'arrel de l'aplicació: /TotEsBook/mostrarLlibres
     @RequestMapping("/mostrarLlibres")
     public ModelAndView pagina2() {
         ModelAndView modelview = new ModelAndView("mostrarLlibres");
         
-        System.out.println("Hola Josep");
+        //System.out.println("Hola Josep");
 
         modelview.addObject("llibres", llibreService.getAllLlibres());
         return modelview;

@@ -1,6 +1,7 @@
 package cat.xtec.ioc.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 
@@ -14,20 +15,26 @@ public class Llibre {
     String autor;
     String editorial;
     String categoria;
-    
 
-    // Constructor
+    @Column(columnDefinition = "TEXT")
+    String sinopsis;
+
+    String imatgeUrl;
+
+    // Constructor buit requerit per JPA
     public Llibre() {
-        // Constructor buit requerit per JPA
+
     }
 
     // Constructor
-    public Llibre(String isbn, String titol, String autor, String editorial, String categoria) {
+    public Llibre(String isbn, String titol, String autor, String editorial, String categoria, String sinopsis, String imatgeUrl) {
         this.isbn = isbn;
         this.titol = titol;
         this.autor = autor;
         this.editorial = editorial;
         this.categoria = categoria;
+        this.sinopsis = sinopsis;
+        this.imatgeUrl = imatgeUrl;
     }
 
     // Getters i Setters
@@ -71,8 +78,30 @@ public class Llibre {
         this.categoria = categoria;
     }
 
+    public String getSinopsis() {
+        return sinopsis;
+    }
+
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
+    }
+
+    public String getImatgeUrl() {
+        return imatgeUrl;
+    }
+
+    public void setImatgeUrl(String imatgeUrl) {
+        this.imatgeUrl = imatgeUrl;
+    }
+
     @Override
     public String toString() {
-        return isbn + " - " + titol + " - " + autor + " - " + categoria;
+        return "Llibre{"
+                + "isbn='" + isbn + '\''
+                + ", titol='" + titol + '\''
+                + ", autor='" + autor + '\''
+                + ", sinopsis='" + sinopsis + '\''
+                + ", imatgeUrl='" + imatgeUrl + '\''
+                + '}';
     }
 }

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build: .
@@ -17,7 +15,7 @@ services:
       - DB_USER=totesuser
       - DB_PASS=totespass
     volumes:
-      # MUNTEM el WAR des del host (build local) al GlassFish
+      # WAR en autodeploy
       - ./target/TotEsBook-1.0-SNAPSHOT.war:/opt/glassfish7/glassfish/domains/domain1/autodeploy/TotEsBook.war
 
   db:
@@ -32,9 +30,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      # VOLUM per conservar dades
       - mysql_data:/var/lib/mysql
-      # Script d'inicialització (només primer cop)
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   adminer:
