@@ -23,7 +23,7 @@ public class GoogleBooksService {
     // Mètode que retorna un Llibre si el troba a Google Books
     public Optional<Llibre> getLlibreByIsbn(String isbn) {
         try {
-            // Netejar ISBN (Google Books funciona millor sense guions)
+            // Treure guions dels ISBN
             String cleanIsbn = isbn.replace("-", "");
 
             String url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + cleanIsbn;
@@ -74,7 +74,7 @@ public class GoogleBooksService {
                 // Comprovem si ja existeix a la BD pel ISBN
                 Optional<Llibre> existent = llibreService.getLlibreByIsbn(isbn);
                 if (existent.isPresent()) {
-                    System.out.println("Llibre amb ISBN " + isbn + " ja existeix. S'omet.");
+                    System.out.println("Llibre amb ISBN " + isbn + " ja existeix.");
                     return; // No fem res més per a evitar duplicats a la BD
                 }
 

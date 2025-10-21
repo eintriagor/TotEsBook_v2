@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public class LlibreDAO implements LlibreRepository {
 
-    // Demanem un EntityManager gestionat. Spring el proporcionarà.
+    // Creem EntityManager gestionat Spring
     @PersistenceContext
     private EntityManager entityManager;
 

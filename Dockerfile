@@ -1,12 +1,25 @@
+# ============================================================
+# ETAPA 1: COMPILAR EL PROJECTE (amb Maven i JDK 21)
+# ============================================================
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
-# ---- Base: JDK 17 oficial ----
-FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+
+# ============================================================
+# ETAPA 2: IMATGE FINAL AMB GLASSFISH 7 I WAR JA DESPLEGAT
+# ============================================================
+FROM eclipse-temurin:21-jdk
 
 # Variables d'entorn
 ENV GLASSFISH_HOME=/opt/glassfish7
 ENV PATH=$GLASSFISH_HOME/bin:$PATH
 
-# ---- Eines del sistema + certificats del SO ----
+# ---- Eines del sistema ----
 RUN apt-get update && \
     apt-get install -y wget unzip ca-certificates iputils-ping netcat-openbsd && \
     update-ca-certificates && \
@@ -23,9 +36,7 @@ RUN wget -q https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-8.
     cp /opt/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar $GLASSFISH_HOME/glassfish/lib/ && \
     rm -rf /opt/mysql-connector-j-8.0.33*
 
-# JDK 17 JA UTILITZA el trustStore correcte -> JA NO CAL JAVA_TOOL_OPTIONS
-
-# ---- Pool JDBC (sense canvis) ----
+# ---- Pool JDBC ----
 RUN asadmin start-domain && \
     asadmin create-jdbc-connection-pool \
       --datasourceclassname=com.mysql.cj.jdbc.MysqlDataSource \
@@ -38,6 +49,10 @@ RUN asadmin start-domain && \
     asadmin set resources.jdbc-connection-pool.TotEsBookPool.property.allowPublicKeyRetrieval=true && \
     asadmin set resources.jdbc-connection-pool.TotEsBookPool.property.serverTimezone=UTC && \
     asadmin stop-domain
+
+# ---- Copiem el WAR generat des de la fase de build ----
+COPY --from=build /app/target/TotEsBook-1.0-SNAPSHOT.war \
+     $GLASSFISH_HOME/glassfish/domains/domain1/autodeploy/TotEsBook.war
 
 # ---- Exposa ports ----
 EXPOSE 8080 4848
