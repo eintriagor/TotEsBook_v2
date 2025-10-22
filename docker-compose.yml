@@ -14,9 +14,9 @@ services:
       - DB_NAME=totesbook
       - DB_USER=totesuser
       - DB_PASS=totespass
-    volumes:
+    #volumes:
       # WAR en autodeploy
-      - ./target/TotEsBook-1.0-SNAPSHOT.war:/opt/glassfish7/glassfish/domains/domain1/autodeploy/TotEsBook.war
+    #  - ./target/TotEsBook-1.0-SNAPSHOT.war:/opt/glassfish7/glassfish/domains/domain1/autodeploy/TotEsBook.war
 
   db:
     image: mysql:8.0
