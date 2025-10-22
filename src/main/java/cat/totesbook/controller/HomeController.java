@@ -1,4 +1,4 @@
-package cat.xtec.ioc.controller;
+package cat.totesbook.controller;
 
 
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,5 @@
-# ============================================================
 # ETAPA 1: COMPILAR EL PROJECTE (amb Maven i JDK 21)
-# ============================================================
+
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 
 WORKDIR /app
@@ -10,9 +9,9 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 
-# ============================================================
+
 # ETAPA 2: IMATGE FINAL AMB GLASSFISH 7 I WAR JA DESPLEGAT
-# ============================================================
+
 FROM eclipse-temurin:21-jdk
 
 # Variables d'entorn

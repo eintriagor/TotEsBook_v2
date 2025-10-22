@@ -1,9 +1,9 @@
-package cat.xtec.ioc.repository.impl;
+package cat.totesbook.repository.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Repository;
-import cat.xtec.ioc.domain.Llibre;
-import cat.xtec.ioc.repository.LlibreRepository;
+import cat.totesbook.domain.Llibre;
+import cat.totesbook.repository.LlibreRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package cat.xtec.ioc.config;
+package cat.totesbook.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -17,7 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan(
-    basePackages = "cat.xtec.ioc",
+    basePackages = "cat.totesbook",
     excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)
 )
 @EnableTransactionManagement

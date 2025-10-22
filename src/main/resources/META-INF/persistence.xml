@@ -9,7 +9,7 @@
         <!-- JNDI DataSource creat a GlassFish -->
         <jta-data-source>jdbc/TotEsBookDS</jta-data-source>
 
-        <class>cat.xtec.ioc.domain.Llibre</class>
+        <class>cat.totesbook.domain.Llibre</class>
 
 
         <properties>

@@ -1,4 +1,4 @@
-package cat.xtec.ioc.service;
+package cat.totesbook.service;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;

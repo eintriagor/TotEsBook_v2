@@ -1,4 +1,4 @@
-package cat.xtec.ioc.domain;
+package cat.totesbook.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Column;

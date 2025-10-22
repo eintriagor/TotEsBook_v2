@@ -1,4 +1,4 @@
-package cat.xtec.ioc.config;
+package cat.totesbook.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(
-        basePackages = "cat.xtec.ioc",
+        basePackages = "cat.totesbook",
         useDefaultFilters = false,
         includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)
 )

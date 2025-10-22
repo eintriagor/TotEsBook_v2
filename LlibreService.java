@@ -1,7 +1,7 @@
-package cat.xtec.ioc.service;
+package cat.totesbook.service;
 
 import java.util.List;
-import cat.xtec.ioc.domain.Llibre;
+import cat.totesbook.domain.Llibre;
 import java.util.Optional;
 
 // Interface de la capa de servei

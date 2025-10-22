@@ -1,4 +1,4 @@
-package cat.xtec.ioc.config;
+package cat.totesbook.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,13 +1,14 @@
-package cat.xtec.ioc.service;
+package cat.totesbook.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import cat.xtec.ioc.domain.Llibre;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+import cat.totesbook.domain.Llibre;
+import cat.totesbook.service.LlibreService;
 
 @Service
 public class GoogleBooksService {
