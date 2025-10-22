@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 public class Llibre {
 
     @Id
-    String isbn;
+    String isbn;    //Codi dels llibres
     String titol;
     String autor;
     String editorial;
